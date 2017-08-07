@@ -160,9 +160,6 @@ static void caerLocalFiltDownsampleModuleConfig(caerModuleData moduleData) {
 	    caerLog(CAER_LOG_NOTICE, __func__, "Start cams");
 	    for (uint32_t i = 0; i < 1024; i++) {
 		caerDynapseWriteCam(state->eventSourceModuleState->deviceState, i%256, i, 0, DYNAPSE_CONFIG_CAMTYPE_F_EXC);
-		for(uint32_t j = 1; j < 4; j++) {
-		    caerDynapseWriteSram(state->eventSourceModuleState->deviceState, i/256, i%256, 3, 0, 0, DYNAPSE_CONFIG_SRAM_DIRECTION_Y_NORTH, 1, j, 3);
-		}
 
 	    }
 	    caerLog(CAER_LOG_NOTICE, __func__, "Cams done");
